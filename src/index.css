@@ -1,0 +1,133 @@
+.myform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+  height: 16vh;
+  border: 2px solid #eee;
+  margin-bottom: 10rem;
+}
+.margined{
+  margin:auto,
+}
+.signdiv {
+  width: 99%;
+  height: 20vh;
+  display: flex;
+  margin-top: 5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.singImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  max-width: 60%;
+  height: auto;
+}
+.center {
+  margin: auto;
+}
+.beblock {
+  width: 60%;
+}
+.beblock-sm {
+  width: 40%;
+}
+.navColor:hover {
+  color: #fd7066;
+  font-weight: 800;
+}
+.navColor {
+  color: #fff;
+  font-weight: 800;
+}
+.Avatar-nav {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+.newquestion {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 60vh;
+  border: 1px solid #eee;
+  margin-top: 5rem;
+}
+.myform2 {
+  width: 90%;
+}
+.boaredR{
+  border-right: 2px solid #eee;
+}
+.bored-score{
+  border:2px solid #eee;
+  height:20vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.score{
+  width: 100%;
+  height: 40%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+.score-no{
+width: 100%;
+height: 60%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.resultBox{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height:12rem;
+  border:1px solid #eee;
+  width:30vw;
+  /* background-color: lightblue; */
+}
+.resultcard{
+
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  margin-left:10vw;;
+}
+.qcntainer{
+display: flex;
+width:100%;
+justify-content: center;
+align-items: center;
+
+}
+.qcard{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}

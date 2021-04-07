@@ -1,0 +1,164 @@
+.carousel-caption {
+  left: 0% !important;
+}
+.homeheader {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  &__container {
+    position: relative;
+    width: 100%px;
+    height: 100%;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__overlay {
+    position: absolute;
+    transition: all 0.3s ease;
+    width: 100%;
+    background-color: $sec-color;
+    opacity: 0.6;
+  }
+
+  &__overlayFade {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0.7;
+    background-color: $sec-color;
+    @include beflex;
+    @include centeralize;
+    @include Align-center;
+    &__shape {
+      width: 18%;
+      height: 45%;
+      background-color: $primary-color;
+      //  border-radius: 0 50% 50% 0;
+      opacity: 1;
+    }
+  }
+  &__headline {
+    position: absolute;
+    top: 45%;
+    left: 3%;
+    // width: 80%;
+    @include responsive(lab) {
+      width: 70%;
+      top: 62%;
+      left: -3%;
+    }
+    @include responsive(tab) {
+      top: 80%;
+      width: 70%;
+      left: -8%;
+    }
+    @include responsive(mob) {
+      top: 92%;
+      width: 50%;
+    }
+
+    &__subtitle {
+      // color: $sec-color;
+      color: $paragraph-shade1;
+      font-size: $p-font-size;
+      max-width: 70%;
+      font-family: $font-family-sans-serief;
+      margin: auto;
+      @include margin-top-sm;
+
+      @include responsive(lab) {
+        @include margin-top-xs;
+      }
+      @include responsive(tab) {
+        font-size: $p-font-size;
+        @include margin-top-xs;
+      }
+      @include responsive(mob) {
+        font-size: 0.8rem;
+        display: none;
+
+        @include margin-top-xs;
+      }
+    }
+    &__maintitle {
+      font-size: $h1-font-size;
+      font-family: $font-family-sans-serief;
+      // color: #59aba9;
+      color: $sec-color;
+      font-weight: bold;
+
+      @include responsive(lab) {
+        font-size: $h2-font-size;
+      }
+      @include responsive(tab) {
+        font-size: $h6-font-size;
+      }
+      @include responsive(mob) {
+        font-size: 1rem;
+      }
+    }
+    &__title {
+      font-size: $h2-font-size;
+      font-family: $font-family-sans-serief;
+      @include margin-top-md;
+      font-weight: 100;
+    }
+    & > a {
+      @include margin-top-sm;
+      @include responsive(tab) {
+        @include margin-top-xs;
+      }
+      @include responsive(mob) {
+        @include margin-top-xs;
+        padding: 0.3rem 1.6rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.mycontainer {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+
+  text-align: center;
+
+  &__item {
+    width: 50%;
+    height: 40%;
+    opacity: 1;
+  }
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+
+    @include centeralize;
+    @include responsive(tab) {
+    }
+    @include responsive(mob) {
+      display: none;
+    }
+    @include responsive(lab) {
+      @include centeralize;
+    }
+    &__title {
+      font-weight: bold;
+      font-size: $h3-font-size;
+      font-family: $font-family-Serief;
+      text-align: center;
+      opacity: 1;
+      color: $info-color;
+      @include responsive(mob) {
+      }
+    }
+  }
+}

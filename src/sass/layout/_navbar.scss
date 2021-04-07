@@ -1,0 +1,126 @@
+.Navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  height: 10vh;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  left: 0;
+
+  &--icon {
+    @include margin-right-xs;
+  }
+  &__nav-toggler {
+    @include beflex;
+    @include Start;
+    @include Align-center;
+    height: 8rem;
+    // display: none;
+    @include responsive(tab) {
+      display: flex;
+    }
+    @include responsive(mob) {
+      display: flex;
+    }
+    @include responsive(lab) {
+      display: flex;
+    }
+    @include responsive(largesc) {
+      display: none;
+    }
+    // &__icon{
+
+    //   @include responsive(tab) {
+    //     font-size: $h5-font-size !important;
+    //   }
+    //   @include responsive(mob) {
+    //     font-size: $p-font-size !important;
+
+    //   }
+    //   @include responsive(lab) {
+    //     font-size: $h5-font-size!important;
+
+    //   }
+    //   @include responsive(largesc) {
+    //     display: none;
+    //   }
+    // }
+    // // &i{
+
+    // }
+  }
+
+  &__brand-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 28rem;
+    height: 7rem;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+      text-decoration: none;
+    }
+    @include responsive(mob) {
+      // width:29rem;
+      // height: 5rem;
+      justify-content: flex-start;
+    }
+    &__item {
+      width: 20%;
+      @include margin-top-xs;
+
+      height: 100%;
+      @include margin-right-sm;
+      @include responsive(mob) {
+        height: 60%;
+        width: 13%;
+      }
+    }
+    &-heading {
+      @include margin-top-xs;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      &:hover {
+        text-decoration: none;
+      }
+      @include responsive(tab) {
+        @include centeralize;
+      }
+      @include responsive(mob) {
+        // @include centeralize;
+        display: none;
+      }
+      @include responsive(lab) {
+        @include centeralize;
+      }
+      &__title {
+        color: $sec-color;
+        font-weight: bold;
+        font-size: $h6-font-size;
+        text-align: center;
+        font-family: $font-family-sans-serief;
+
+        // @include responsive(mob) {
+        //   // font-size: 1rem;
+
+        // }
+      }
+    }
+  }
+}
+
+.change-nav-bg {
+  // background-color: $triary-color!important;
+  // background-color: $bg-shade!important;
+  background-color: transparent;
+
+  // box-shadow: 3px 3px 3px $shade3;
+}

@@ -1,0 +1,156 @@
+@mixin beflex {
+  display: flex;
+}
+@mixin Start {
+  justify-content: flex-start !important;
+}
+
+@mixin AStart {
+  align-items: flex-start;
+  justify-items: flex-start;
+}
+@mixin End {
+  justify-content: flex-end;
+}
+@mixin spacebetween {
+  justify-content: space-around;
+}
+
+@mixin spacearound {
+  justify-content: space-around;
+}
+@mixin Align-center {
+  align-items: center;
+  align-content: center;
+}
+@mixin centeralize {
+  justify-content: center;
+  align-items: center;
+}
+@mixin just-center {
+  justify-content: center;
+}
+@mixin columns {
+  flex-direction: column;
+}
+
+@mixin margin-left-xs {
+  margin-left: 2rem;
+}
+
+@mixin margin-left-sm {
+  margin-left: 4rem;
+}
+
+@mixin margin-left-md {
+  margin-left: 6rem;
+}
+
+@mixin margin-left-lg {
+  margin-left: 8rem;
+}
+
+@mixin margin-left-xl {
+  margin-left: 17rem;
+}
+
+@mixin margin-right-xs {
+  margin-right: 2rem;
+}
+
+@mixin margin-right-sm {
+  margin-right: 4rem;
+}
+
+@mixin margin-right-md {
+  margin-right: 6rem;
+}
+
+@mixin margin-right-lg {
+  margin-right: 8rem;
+}
+
+@mixin margin-right-xl {
+  margin-right: 12rem;
+}
+
+@mixin columns {
+  flex-direction: column;
+}
+
+@mixin margin-bottom-sm {
+  margin-bottom: 4rem;
+}
+
+@mixin margin-bottom-xs {
+  margin-bottom: 2rem;
+}
+
+@mixin margin-bottom-md {
+  margin-bottom: 6rem;
+}
+
+@mixin margin-bottom-lg {
+  margin-bottom: 8rem;
+}
+
+@mixin margin-bottom-xl {
+  margin-bottom: 15rem;
+}
+
+@mixin columns {
+  flex-direction: column;
+}
+
+@mixin margin-top-xs {
+  margin-top: 1rem;
+}
+
+@mixin margin-top-sm {
+  margin-top: 4rem;
+}
+
+@mixin margin-top-md {
+  margin-top: 6rem;
+}
+
+@mixin margin-top-lg {
+  margin-top: 8rem;
+}
+
+@mixin margin-top-xl {
+  margin-top: 12rem;
+}
+
+@mixin margin-top-xxl {
+  margin-top: 20rem;
+}
+
+@mixin responsive($device-name) {
+  @if $device-name==verylargesc {
+    @media (min-width: 100em) and(max-width:250em) {
+      @content;
+    }
+  }
+  @if $device-name==largesc {
+    @media (min-width: 76em) and(max-width:100em) {
+      @content;
+    }
+  }
+  @if $device-name==lab {
+    @media (min-width: 56.25em) and(max-width: 75em) {
+      @content;
+    }
+  }
+  @if $device-name==tab {
+    @media (min-width: 37.5em) and(max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $device-name==mob {
+    @media (max-width: 37.5em) and (min-width: 1em) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+// .centerlaizing {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .myinput {
+//   &--sm {
+//     @include margin-bottom-sm;
+//     font-size: $h6-font-size;
+//     height: 3.8rem;
+//     width: 100%;
+//     color: $shade1;
+
+//     &::placeholder {
+//       font-size: 1.4rem;
+//       color: #fff;
+//     }
+//   }
+//   &--trans {
+//     background-color: transparent;
+//   }
+//   &--md {
+//     height: 4rem;
+//     @include margin-bottom-sm;
+//     font-size: $h6-font-size;
+//     @include responsive(mob) {
+//       font-size: $p-font-size;
+//     }
+//     @include responsive(tab) {
+//       font-size: $p-font-size;
+//     }
+
+//     &::placeholder {
+//       font-size: 2rem;
+//       color: $shade1;
+//       @include responsive(mob) {
+//         font-size: $p-font-size;
+//       }
+//       @include responsive(tab) {
+//         font-size: $p-font-size;
+//       }
+//     }
+//   }
+
+//   &--lg {
+//     height: 6rem;
+//     font-size: $h6-font-size;
+
+//     @include margin-bottom-sm;
+//     &::placeholder {
+//       font-size: 2rem;
+//       width: 100%;
+//       color: $shade1;
+//     }
+//   }
+
+//   &--xl {
+//     height: 4rem;
+//     font-size: $h6-font-size;
+//     @include margin-bottom-xs;
+//     &::placeholder {
+//       font-size: 2rem;
+//       width: 100%;
+//       color: $shade1;
+//     }
+//   }
+// }
