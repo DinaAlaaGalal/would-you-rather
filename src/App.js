@@ -25,7 +25,6 @@ function App() {
             render={(props) => (
               <NewQuestion
                 {...props}
-                // questions={store.initialState.questions}
               />
             )}
           />

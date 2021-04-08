@@ -15,18 +15,9 @@ const Home = (props) => {
   useEffect(() => {
     
     props.fetchQuestion();
-    // props.fetchUnAnsweredQuestins(props.questions?.questions,{id:0});
-     
-    // console.log(props.questions.questions)
-    // props.fetchUnAnsweredQuestins(props.questions.questions,0);
-    // props.fetchAnsweredQuestins(null,null);
+   
   }, []);
-  // useEffect(() => {
-  //   // console.log(props.questions.questions)
-
-  //   // props.fetchUnAnsweredQuestins(props.questions.questions,{id:0})});
-  //   // props.fetchAnsweredQuestins(null,null);
-  // }, [props.questions.questions]);
+  
 
   let [acc1, setaac1] = useState(true);
   let [acc2, setaac2] = useState(false);
