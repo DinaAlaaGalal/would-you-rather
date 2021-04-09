@@ -99,7 +99,7 @@ const Home = (props) => {
               <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div className={getDisplayHidden1()}>
                   {Object.values(props.unansweredquestions?.unansweredquestions).length !==0 &&
-                  Object.values(props?.unansweredquestions?.unansweredquestions).map((u, i) =>                 
+                  Object.values(props?.unansweredquestions?.unansweredquestions).reverse().map((u, i) =>                 
                         <Card
                           key={i}
                           className="qcntainer"
@@ -136,6 +136,7 @@ const Home = (props) => {
                                   </h2>
                                 </div>
                                 <div>
+                                  {(Object.keys(this.props.currentuser)).length!==0&&(
                                   <Link
                                     onClick={(e) =>
                                       fetchuserQuestion(
@@ -148,7 +149,21 @@ const Home = (props) => {
                                     to="/Question"
                                   >
                                     VIEW POOL
-                                  </Link>
+                                  </Link>)}
+                                  {(Object.keys(this.props.currentuser)).length==0&&(
+                                  <Link
+                                    onClick={(e) =>
+                                      fetchuserQuestion(
+                                        e,
+                                        Object.values(props.users)?.find(
+                                          (m) => m.id === u.author
+                                        )
+                                      )
+                                    }
+                                    to="/"
+                                  >
+                                    VIEW POOL
+                                  </Link>)}
                                 </div>
                               </div>
                             </div>
@@ -156,7 +171,7 @@ const Home = (props) => {
                         </Card>
                   )}
                    {Object.values(props.unansweredquestions?.unansweredquestions).length==0 &&
-                    Object.values(props?.questions?.questions).map((u, i) =>                 
+                    Object.values(props?.questions?.questions).reverse().map((u, i) =>                 
                         <Card
                           key={i}
                           className="qcntainer"

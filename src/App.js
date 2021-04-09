@@ -8,11 +8,11 @@ import NewQuestion from "./components/NewQuestion";
 import Home from "./components/Home";
 import LeaderBoared from './components/LeaderBoared';
 import Question from'./components/Question'
-import Result from'./components/Results'
+import Result from'./components/Results';
+import Error from'./components/Error'
 import "./App.css";
 import "./sass/main.scss";
 function App() {
-
   return (
     <div className="App">
       <Provider store={store}>
@@ -24,6 +24,15 @@ function App() {
             path="/NewQuestion"
             render={(props) => (
               <NewQuestion
+                {...props}
+              />
+            )}
+          />
+          <Route
+            exact={true}
+            path="/Question/:id"
+            render={(props) => (
+              <Error
                 {...props}
               />
             )}

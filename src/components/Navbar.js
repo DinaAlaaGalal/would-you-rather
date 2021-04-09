@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUser } from "../actions/CurrentUserAction";
-
 class Navbar extends Component {
   componentDidMount() {
-
   }
-
+mylogout=()=>{
+  this.props?.fetchUser([],'')
+}
   render() {
     console.log(this.props)
     return (
@@ -54,21 +54,20 @@ class Navbar extends Component {
               {this.props.currentuser?.currentuser&& (
               <li className="nav-item mr-5">
               <i className="fas fa-sign-out-alt fa-2x Avatar-nav navColor"></i>
-                <h6 className="nav-link navColor">Logout</h6>
+                <p className="nav-link navColor" onClick={this.mylogout}>Logout</p>
               </li>
               )}
             </ul>
         </nav>
       </React.Fragment>
     );
-    //  }
   }
 }
 
 
 function mapStateToProps(state) {
   return {
-    currentuser:state.currentuser
+    currentuser:state.currentuser,
   };
 }
 

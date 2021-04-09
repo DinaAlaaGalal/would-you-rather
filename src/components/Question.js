@@ -14,7 +14,10 @@ import { fetchAnsweredQuestins } from "../actions/AnsweredQuestionActin";
 import { fetchUnAnsweredQuestins } from "../actions/UnansweredQuestionAction";
 
 class Question extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    if((Object.keys(this.props.currentuser).length==0)||this.props.currentuser?.currentuser==undefined)
+    this.props.history.replace("/")
+  }
   state = {
     option: "",
     id: 0,
@@ -22,9 +25,10 @@ class Question extends Component {
 
   submitHandler(e, question) {
     e.preventDefault();
-    const authedUser = this.props.currentuser.currentuser.id;
+    const authedUser = this.props.currentuser?.currentuser?.id;
     const qid = question.id;
-    if (this.state.id === 1) {
+    if (this.state?.id === 1) {
+
       // const answer = question.optionOne.text;
       const answer = "optionOne";
       this.props.fetchVoteOption1(this.props.questions.questions, question);
@@ -48,11 +52,13 @@ class Question extends Component {
       );
 
       _saveQuestionAnswer({ authedUser, qid, answer }).then((res) => res);
+     
       this.props.history.replace("/Result");
-    }
 
-    if (this.state.id === 2) {
-      // const answer = question.optionTwo.text;
+      
+    }
+    
+    if (this.state?.id === 2) {
       const answer = "optionTwo";
       this.props.fetchVoteOption2(this.props.questions.questions, question);
       if (
@@ -76,8 +82,9 @@ class Question extends Component {
       );
 
       _saveQuestionAnswer({ authedUser, qid, answer }).then((res) => res);
+      
       this.props.history.replace("/Result");
-    }
+         }
     console.log(this.props);
   }
 
@@ -142,8 +149,7 @@ class Question extends Component {
                                   id="flexRadioDefault1"
                                   onChange={(e) => this.onOptionChanged(e, 1)}
                                   value={
-                                    // this.props.questions[uq.userquestion]
-                                    //   ?.optionOne?.text
+                                   
                                     uq?.optionOne?.text
                                   }
                                 />
@@ -152,8 +158,7 @@ class Question extends Component {
                                   htmlFor="flexRadioDefault1"
                                 >
                                   {
-                                    // this.props.questions[uq.userquestion]
-                                    //   ?.optionOne?.text
+                                   
                                     uq?.optionOne?.text
                                   }
                                 </label>
@@ -166,8 +171,7 @@ class Question extends Component {
                                   id="flexRadioDefault2"
                                   onChange={(e) => this.onOptionChanged(e, 2)}
                                   value={
-                                    // this.props.questions?.questions[uq.userquestion]
-                                    //   ?.optionTwo?.text
+                                   
                                     uq?.optionTwo?.text
                                   }
                                 />
@@ -176,8 +180,7 @@ class Question extends Component {
                                   htmlFor="flexRadioDefault2"
                                 >
                                   {
-                                    // this.props.questions?.questions[uq.userquestion]
-                                    //   ?.optionTwo?.text
+                                   
                                     uq?.optionTwo?.text
                                   }
                                 </label>

@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
-// import { Button } from "react-bootstrap";
 import { fetchQuestion } from "../actions/QuestionAction";
 import { fetchUser } from "../actions/CurrentUserAction";
 import {fetchUserWithId } from "../actions/GetSpecificUserAction";
@@ -9,11 +8,15 @@ import {fetchUserWithId } from "../actions/GetSpecificUserAction";
 class Results extends Component {
   state={  
     }
-  componentDidMount() {  }
+  componentDidMount() { 
+    if((Object.keys(this.props.currentuser).length==0)||this.props.currentuser?.currentuser==undefined)
+   { this.props.history.replace("/")
+   }}
   render() {
-    console.log(this.props)
+    console.log((Object.keys(this.props.currentuser)).length)
     return (
       <React.Fragment>
+        {/* {(Object.keys(this.props.currentuser)).length!==0&&( */}
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -90,6 +93,7 @@ class Results extends Component {
             </div>
           </div>
         </div>
+        {/* )} */}
       </React.Fragment>
     );
   }
@@ -100,6 +104,8 @@ function mapStateToProps(state) {
     questions: state.questions,
     users: state.users,
     userQuestion:state.userQuestion,
+    currentuser: state.currentuser,
+
   };
 }
 //3.

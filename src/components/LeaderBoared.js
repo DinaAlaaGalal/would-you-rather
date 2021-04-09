@@ -8,7 +8,12 @@ import { fetchUserWithId } from "../actions/GetSpecificUserAction";
 import {fetchAnsweredQuestins}from "../actions/AnsweredQuestionActin";
 import {fetchUnAnsweredQuestins}from "../actions/UnansweredQuestionAction";
 class LeaderBoared extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    if((Object.keys(this.props.currentuser).length==0)||this.props.currentuser?.currentuser==undefined)
+{
+     this.props.history.replace('/')
+}
+  }
 
    answeredequestions(name){
      var counter1=0;
@@ -38,8 +43,10 @@ class LeaderBoared extends Component {
  
   
   render() {
+    console.log((Object.keys(this.props.currentuser)).length)
     return (
       <React.Fragment>
+       {/* {(Object.keys(this.props.currentuser)).length!=0&( */}
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -94,6 +101,7 @@ class LeaderBoared extends Component {
             </div>
           </div>{" "}
         </div>
+        {/* )} */}
       </React.Fragment>
     );
   }

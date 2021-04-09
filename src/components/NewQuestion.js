@@ -12,8 +12,9 @@ class NewQuestion extends Component {
       OptionTwo: ""  
   };
   componentDidMount() {
-    //5.Call Action
-    // this.props.fetchUser();
+    if((Object.keys(this.props.currentuser)).length==0){
+      this.props.history.replace('/')
+ }
   }
 changeHandler({target}){
 const state={...this.state}

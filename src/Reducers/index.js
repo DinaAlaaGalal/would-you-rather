@@ -21,6 +21,7 @@ export default combineReducers({
      VoteReducer2:VoteReducer2,
      answeredquestions:AnsweredQuestioonReducer,
      unansweredquestions:UnAnsweredQuestioonReducer,
+
      Types:Types
 
 });
