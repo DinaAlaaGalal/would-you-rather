@@ -26,18 +26,18 @@ class Question extends Component {
   submitHandler(e, question) {
     e.preventDefault();
     const authedUser = this.props.currentuser?.currentuser?.id;
-    const qid = question.id;
+    const qid = question?.id;
     if (this.state?.id === 1) {
 
       // const answer = question.optionOne.text;
       const answer = "optionOne";
-      this.props.fetchVoteOption1(this.props.questions.questions, question);
+      this.props.fetchVoteOption1(this.props.questions?.questions, question);
       if (
         Object.values(this.props.unansweredquestions?.unansweredquestions)
           .length == 0
       )
         this.props.fetchUnAnsweredQuestins(
-          this.props.questions.questions,
+          this.props.questions?.questions,
           question
         );
       else {
@@ -47,7 +47,7 @@ class Question extends Component {
         );
       }
       this.props.fetchAnsweredQuestins(
-        this.props.questions.questions,
+        this.props.questions?.questions,
         question
       );
 
@@ -60,7 +60,7 @@ class Question extends Component {
     
     if (this.state?.id === 2) {
       const answer = "optionTwo";
-      this.props.fetchVoteOption2(this.props.questions.questions, question);
+      this.props.fetchVoteOption2(this.props.questions?.questions, question);
       if (
         Object.values(this.props.unansweredquestions?.unansweredquestions)
           .length == 0
@@ -77,7 +77,7 @@ class Question extends Component {
       }
 
       this.props.fetchAnsweredQuestins(
-        this.props.questions.questions,
+        this.props.questions?.questions,
         question
       );
 
@@ -101,7 +101,7 @@ class Question extends Component {
     console.log(this.props);
     return (
       <React.Fragment>
-        {Object.values(this.props.questions.questions).map(
+        {Object.values(this.props.questions?.questions).map(
           (uq, i) =>
             uq.id == this.props?.userQuestion?.userQuestion?.userquestion && (
               <div className="container" key={i}>
