@@ -9,7 +9,6 @@ Using the provided starter code, you'll build a React/Redux front end for the ap
 ## TL;DR
 
 To get started developing right away:
-
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
