@@ -15,11 +15,15 @@ import { fetchUnAnsweredQuestins } from "../actions/UnansweredQuestionAction";
 
 class Question extends Component {
   componentDidMount() {
-    if (
-      Object.keys(this.props.currentuser)?.length == 0 ||
-      this.props.currentuser?.currentuser == undefined
-    )
-      this.props.history.replace("/");
+     if( this.props.match.params?.id=='undefined'){
+        this.props.history.replace("/Error");
+      }
+      else if (
+        Object.keys(this.props.currentuser).length == 0 ||
+        this.props.currentuser?.currentuser == undefined
+      ){
+        this.props.history.replace("/");
+      }
   }
   state = {
     option: "",
@@ -94,6 +98,7 @@ class Question extends Component {
   }
 
   render() {
+
     return (
       <React.Fragment>
         {Object.values(this.props.questions?.questions).map(
@@ -121,9 +126,8 @@ class Question extends Component {
                       <div className="row no-gutters">
                         <div className="col-md-4">
                           <img
-                            src={
-                              this.props?.userQuestion?.userQuestion?.user
-                                ?.avatarURL
+                            src={'../'+
+                              this.props?.userQuestion?.userQuestion?.user?.avatarURL
                             }
                             className="card-img boaredR"
                             alt="..."

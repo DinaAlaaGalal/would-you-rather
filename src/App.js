@@ -28,15 +28,7 @@ function App() {
               />
             )}
           />
-          <Route
-            exact={true}
-            path="/Question/:id"
-            render={(props) => (
-              <Error
-                {...props}
-              />
-            )}
-          />
+          
            <Route
             exact={true}
             path="/Result"
@@ -48,14 +40,22 @@ function App() {
           />
            <Route
             exact={true}
-            path="/Question"
+            path="/Error"
             render={(props) => (
-              <Question
+              <Error
                 {...props}
               />
             )}
           />
-          
+          <Route
+            exact={true}
+            path="/Question/:id"
+            render={(props) => (
+              <Question
+              {...props}
+            />
+          )}
+          />
           <Route
             exact={true}
             path="/LeaderBoared"

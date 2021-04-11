@@ -5,11 +5,14 @@ import { fetchUser } from "../actions/CurrentUserAction";
 import { fetchNewQuestion } from "../actions/NewQuestionAction";
 import { fetchQuestion } from "../actions/QuestionAction";
 import { _saveQuestion } from "../utils/_DATA";
+import { fetchUnAnsweredQuestins } from "../actions/UnansweredQuestionAction";
+import { fetchAllUsers } from "../actions/UserAction";
 class NewQuestion extends Component {
   state = {
     question: "",
     OptionOne: "",
     OptionTwo: "",
+    question:{}
   };
   componentDidMount() {
     if (Object.keys(this.props.currentuser).length == 0) {
@@ -27,21 +30,33 @@ class NewQuestion extends Component {
     let myquestion = {
       optionOneText: this.state.OptionOne,
       optionTwoText: this.state.OptionTwo,
-      author: this.props.currentuser?.currentuser?.name,
+      author: this.props.currentuser?.currentuser?.id,
     };
     let qu = {};
     var optionOneText = this.state.OptionOne;
     var optionTwoText = this.state.OptionTwo;
-    var author = this.props.currentuser?.currentuser?.name;
+    var author = this.props.currentuser?.currentuser?.id;
     const question = formatQuestion({ optionOneText, optionTwoText, author });
+     this.state.question=question;
     _saveQuestion(myquestion).then((res) => {
       qu = res;
     });
-    this.props.fetchNewQuestion(question, this.props.questions);
+
+    this.props.fetchNewQuestion(question);
     this.props.fetchQuestion();
+   
   }
   render() {
-    console.log(this.props);
+   
+    var myq=Object.values(this.props.questions?.questions).find(q=>{
+      return q.optionOne?.text==this.state.question?.optionOne?.text})
+    Object.values(this.props.users).find(u=>{
+      if(
+      u.name==this.props.currentuser?.currentuser?.name){
+        u.questions.push(myq?.id)
+      }
+    
+    })
     return (
       <React.Fragment>
         <div className="newquestion">
@@ -96,6 +111,10 @@ function mapStateToProps(state) {
   return {
     currentuser: state.currentuser,
     questions: state.questions,
+    unansweredquestions: state.unansweredquestions,
+    users: state.users,
+
+
   };
 }
 
@@ -104,4 +123,7 @@ export default connect(mapStateToProps, {
   fetchUser,
   fetchQuestion,
   fetchNewQuestion,
+  fetchAllUsers,
+  fetchUnAnsweredQuestins,
+
 })(NewQuestion);

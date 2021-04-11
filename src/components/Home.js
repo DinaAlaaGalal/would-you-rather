@@ -61,8 +61,11 @@ const Home = (props) => {
     return classes;
   };
 
-  let fetchuserQuestion = (e, u) => {
-    props.fetchUserWithId(u);
+  let fetchuserQuestion = (e,u,q) => {
+    console.log(u)
+    console.log(props.questions)
+    props.fetchUserWithId(u,q);
+    console.log(props)
   };
   return (
     <React.Fragment>
@@ -98,7 +101,7 @@ const Home = (props) => {
                       props?.unansweredquestions?.unansweredquestions
                     )
                       .reverse()
-                      .map((u, i) => (
+                      .map((u,i) => (
                         <Card
                           key={i}
                           className="qcntainer"
@@ -120,7 +123,7 @@ const Home = (props) => {
                               <img
                                 src={
                                   Object.values(props.users)?.find(
-                                    (m) => m.id === u.author
+                                    (m) => m.id ===u.author
                                   )?.avatarURL
                                 }
                                 className="card-img boaredR"
@@ -139,14 +142,8 @@ const Home = (props) => {
                                     .length !== 0 && (
                                     <Link
                                       onClick={(e) =>
-                                        fetchuserQuestion(
-                                          e,
-                                          Object.values(props.users)?.find(
-                                            (m) => m.id === u.author
-                                          )
-                                        )
-                                      }
-                                      to="/Question"
+                                        fetchuserQuestion(e,Object.values(props.users)?.find((m) =>m.id== u.author),u)}
+                                      to={`/Question/${u.id}`}
                                     >
                                       VIEW POOL
                                     </Link>
@@ -155,13 +152,8 @@ const Home = (props) => {
                                     0 && (
                                     <Link
                                       onClick={(e) =>
-                                        fetchuserQuestion(
-                                          e,
-                                          Object.values(props.users)?.find(
-                                            (m) => m.id === u.author
-                                          )
-                                        )
-                                      }
+                                        fetchuserQuestion(e,Object.values(props.users)?.find((m) =>m.id== u.author),u)}
+
                                       to="/"
                                     >
                                       VIEW POOL
@@ -216,14 +208,9 @@ const Home = (props) => {
                                 <div>
                                   <Link
                                     onClick={(e) =>
-                                      fetchuserQuestion(
-                                        e,
-                                        Object.values(props.users)?.find(
-                                          (m) => m.id === u.author
-                                        )
-                                      )
-                                    }
-                                    to="/Question"
+                                      fetchuserQuestion(e,Object.values(props.users)?.find((m) =>m.id== u.author),u)}                                    
+                                    to={`/Question/${u.id}`}
+
                                   >
                                     VIEW POOL
                                   </Link>
@@ -258,7 +245,7 @@ const Home = (props) => {
                             <img
                               src={
                                 Object.values(props.users)?.find(
-                                  (m) => m.id === u.author
+                                  (m) => m.id== u.author
                                 )?.avatarURL
                               }
                               className="card-img boaredR"
@@ -274,15 +261,10 @@ const Home = (props) => {
                               </div>
                               <div>
                                 <Link
-                                  onClick={(e) =>
-                                    fetchuserQuestion(
-                                      e,
-                                      Object.values(props.users)?.find(
-                                        (m) => m.id === u.author
-                                      )
-                                    )
-                                  }
-                                  to="/Question"
+                                  onClick={(e) =>fetchuserQuestion(e,Object.values(props.users)?.find((m) =>m.id== u.author),u)}
+                                 
+                                  to={`/Question/${u.id}`}
+
                                 >
                                   VIEW POOL
                                 </Link>

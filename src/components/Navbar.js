@@ -8,7 +8,6 @@ class Navbar extends Component {
     this.props?.fetchUser([], "");
   };
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-primary bg-primary">
