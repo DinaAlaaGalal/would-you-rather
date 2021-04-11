@@ -10,7 +10,6 @@ import NEWQUESTIONReducer  from "./NewQuestion";
 import AnsweredQuestioonReducer from './AnswredQuestionsReducer'
 import UnAnsweredQuestioonReducer from './UnAnsweredQuestinsReducer'
 import Types from'./Types'
-//Root Reducer
 export default combineReducers({
      currentuser:CurrentUserReducer,
      questionVote:QuestionResultVote,
@@ -21,7 +20,6 @@ export default combineReducers({
      VoteReducer2:VoteReducer2,
      answeredquestions:AnsweredQuestioonReducer,
      unansweredquestions:UnAnsweredQuestioonReducer,
-
      Types:Types
 
 });

@@ -5,7 +5,6 @@ import { fetchUser } from "../actions/CurrentUserAction";
 
 class SignIn extends Component {
   componentDidMount() {
-    //5.Call Action
   }
 
   onSubmit(target){
@@ -13,13 +12,10 @@ class SignIn extends Component {
   }
   
   changeHandler({target}){
-    console.log(this.props.users)
-    console.log(target.value)
     this.props.fetchUser(this.props.users,target.value)
     localStorage.setItem('userName',target.value)
   }
   render() {
-    console.log(this.props)
     return (
       <React.Fragment>
         <div className="signdiv">
@@ -62,13 +58,12 @@ class SignIn extends Component {
         </div>
       </React.Fragment>
     );
-    //  }
   }
 }
 
 function mapStateToProps(state) {
   return {
-    currentuser:state.currentuser, //Get items from productsReducer
+    currentuser:state.currentuser, 
     users:state.users,
   };
 }

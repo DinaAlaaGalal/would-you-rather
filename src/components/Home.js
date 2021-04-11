@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
@@ -7,17 +7,13 @@ import { fetchQuestion } from "../actions/QuestionAction";
 import { fetchAllUsers } from "../actions/UserAction";
 import { fetchUser } from "../actions/CurrentUserAction";
 import { fetchUserWithId } from "../actions/GetSpecificUserAction";
-import {fetchAnsweredQuestins}from "../actions/AnsweredQuestionActin";
-import {fetchUnAnsweredQuestins}from "../actions/UnansweredQuestionAction";
-import { questions } from "../utils/_DATA";
+import { fetchAnsweredQuestins } from "../actions/AnsweredQuestionActin";
+import { fetchUnAnsweredQuestins } from "../actions/UnansweredQuestionAction";
 
 const Home = (props) => {
   useEffect(() => {
-    
     props.fetchQuestion();
-   
   }, []);
-  
 
   let [acc1, setaac1] = useState(true);
   let [acc2, setaac2] = useState(false);
@@ -67,9 +63,7 @@ const Home = (props) => {
 
   let fetchuserQuestion = (e, u) => {
     props.fetchUserWithId(u);
-    
   };
-  console.log(props);
   return (
     <React.Fragment>
       <div className="container">
@@ -98,8 +92,13 @@ const Home = (props) => {
               </div>
               <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div className={getDisplayHidden1()}>
-                  {Object.values(props.unansweredquestions?.unansweredquestions).length !==0 &&
-                  Object.values(props?.unansweredquestions?.unansweredquestions).reverse().map((u, i) =>                 
+                  {Object.values(props.unansweredquestions?.unansweredquestions)
+                    .length !== 0 &&
+                    Object.values(
+                      props?.unansweredquestions?.unansweredquestions
+                    )
+                      .reverse()
+                      .map((u, i) => (
                         <Card
                           key={i}
                           className="qcntainer"
@@ -136,42 +135,49 @@ const Home = (props) => {
                                   </h2>
                                 </div>
                                 <div>
-                                  {(Object.keys(this.props.currentuser)).length!==0&&(
-                                  <Link
-                                    onClick={(e) =>
-                                      fetchuserQuestion(
-                                        e,
-                                        Object.values(props.users)?.find(
-                                          (m) => m.id === u.author
+                                  {Object.keys(this.props.currentuser)
+                                    .length !== 0 && (
+                                    <Link
+                                      onClick={(e) =>
+                                        fetchuserQuestion(
+                                          e,
+                                          Object.values(props.users)?.find(
+                                            (m) => m.id === u.author
+                                          )
                                         )
-                                      )
-                                    }
-                                    to="/Question"
-                                  >
-                                    VIEW POOL
-                                  </Link>)}
-                                  {(Object.keys(this.props.currentuser)).length==0&&(
-                                  <Link
-                                    onClick={(e) =>
-                                      fetchuserQuestion(
-                                        e,
-                                        Object.values(props.users)?.find(
-                                          (m) => m.id === u.author
+                                      }
+                                      to="/Question"
+                                    >
+                                      VIEW POOL
+                                    </Link>
+                                  )}
+                                  {Object.keys(this.props.currentuser).length ==
+                                    0 && (
+                                    <Link
+                                      onClick={(e) =>
+                                        fetchuserQuestion(
+                                          e,
+                                          Object.values(props.users)?.find(
+                                            (m) => m.id === u.author
+                                          )
                                         )
-                                      )
-                                    }
-                                    to="/"
-                                  >
-                                    VIEW POOL
-                                  </Link>)}
+                                      }
+                                      to="/"
+                                    >
+                                      VIEW POOL
+                                    </Link>
+                                  )}
                                 </div>
                               </div>
                             </div>
                           </div>
                         </Card>
-                  )}
-                   {Object.values(props.unansweredquestions?.unansweredquestions).length==0 &&
-                    Object.values(props?.questions?.questions).reverse().map((u, i) =>                 
+                      ))}
+                  {Object.values(props.unansweredquestions?.unansweredquestions)
+                    .length == 0 &&
+                    Object.values(props?.questions?.questions)
+                      .reverse()
+                      .map((u, i) => (
                         <Card
                           key={i}
                           className="qcntainer"
@@ -226,12 +232,12 @@ const Home = (props) => {
                             </div>
                           </div>
                         </Card>
-                  )}
+                      ))}
                 </div>
                 <div id="2" className={getDisplayHidden2()}>
-                  {props?.answeredquestions?.answeredquestions.map(
-                    (ur) =>(ur.map((u,i)=>
-                        <Card
+                  {props?.answeredquestions?.answeredquestions.map((ur) =>
+                    ur.map((u, i) => (
+                      <Card
                         key={i}
                         className="qcntainer"
                         style={{
@@ -284,9 +290,9 @@ const Home = (props) => {
                             </div>
                           </div>
                         </div>
-                      </Card>                     
-                  
-                  )))}
+                      </Card>
+                    ))
+                  )}
                 </div>
               </div>
             </div>
@@ -304,8 +310,8 @@ function mapStateToProps(state) {
     questions: state.questions,
     users: state.users,
     userQuestion: state.userQuestion,
-    answeredquestions:state.answeredquestions,
-    unansweredquestions:state.unansweredquestions
+    answeredquestions: state.answeredquestions,
+    unansweredquestions: state.unansweredquestions,
   };
 }
 
@@ -316,5 +322,5 @@ export default connect(mapStateToProps, {
   fetchUser,
   fetchUserWithId,
   fetchAnsweredQuestins,
-  fetchUnAnsweredQuestins
+  fetchUnAnsweredQuestins,
 })(Home);

@@ -70,8 +70,7 @@ function App() {
             path="/Home"
             render={(props) => (
               <Home
-                {...props}
-               
+                {...props}              
               />
             )}
           />

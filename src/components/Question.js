@@ -15,8 +15,11 @@ import { fetchUnAnsweredQuestins } from "../actions/UnansweredQuestionAction";
 
 class Question extends Component {
   componentDidMount() {
-    if((Object.keys(this.props.currentuser).length==0)||this.props.currentuser?.currentuser==undefined)
-    this.props.history.replace("/")
+    if (
+      Object.keys(this.props.currentuser)?.length == 0 ||
+      this.props.currentuser?.currentuser == undefined
+    )
+      this.props.history.replace("/");
   }
   state = {
     option: "",
@@ -28,8 +31,6 @@ class Question extends Component {
     const authedUser = this.props.currentuser?.currentuser?.id;
     const qid = question?.id;
     if (this.state?.id === 1) {
-
-      // const answer = question.optionOne.text;
       const answer = "optionOne";
       this.props.fetchVoteOption1(this.props.questions?.questions, question);
       if (
@@ -52,12 +53,10 @@ class Question extends Component {
       );
 
       _saveQuestionAnswer({ authedUser, qid, answer }).then((res) => res);
-     
-      this.props.history.replace("/Result");
 
-      
+      this.props.history.replace("/Result");
     }
-    
+
     if (this.state?.id === 2) {
       const answer = "optionTwo";
       this.props.fetchVoteOption2(this.props.questions?.questions, question);
@@ -66,7 +65,7 @@ class Question extends Component {
           .length == 0
       ) {
         this.props.fetchUnAnsweredQuestins(
-          this.props.questions.questions,
+          this.props.questions?.questions,
           question
         );
       } else {
@@ -82,23 +81,19 @@ class Question extends Component {
       );
 
       _saveQuestionAnswer({ authedUser, qid, answer }).then((res) => res);
-      
+
       this.props.history.replace("/Result");
-         }
-    console.log(this.props);
+    }
   }
 
   onOptionChanged(e, id) {
     const state = { ...this.state.option };
     state.option = e.target.value;
-    console.log(e.target.value);
     state.id = id;
-    console.log(state.id);
     this.setState(state);
   }
 
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         {Object.values(this.props.questions?.questions).map(
@@ -148,19 +143,13 @@ class Question extends Component {
                                   name="option"
                                   id="flexRadioDefault1"
                                   onChange={(e) => this.onOptionChanged(e, 1)}
-                                  value={
-                                   
-                                    uq?.optionOne?.text
-                                  }
+                                  value={uq?.optionOne?.text}
                                 />
                                 <label
                                   className="form-check-label ml-3"
                                   htmlFor="flexRadioDefault1"
                                 >
-                                  {
-                                   
-                                    uq?.optionOne?.text
-                                  }
+                                  {uq?.optionOne?.text}
                                 </label>
                               </div>
                               <div className="form-check mb-4">
@@ -170,19 +159,13 @@ class Question extends Component {
                                   name="option"
                                   id="flexRadioDefault2"
                                   onChange={(e) => this.onOptionChanged(e, 2)}
-                                  value={
-                                   
-                                    uq?.optionTwo?.text
-                                  }
+                                  value={uq?.optionTwo?.text}
                                 />
                                 <label
                                   className="form-check-label ml-3"
                                   htmlFor="flexRadioDefault2"
                                 >
-                                  {
-                                   
-                                    uq?.optionTwo?.text
-                                  }
+                                  {uq?.optionTwo?.text}
                                 </label>
                               </div>
                               <Button

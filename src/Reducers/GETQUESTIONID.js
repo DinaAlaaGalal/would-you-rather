@@ -5,7 +5,6 @@ const initialState = {
 export default function QuestionAndUserReducer(state = initialState, action) {
     switch (action.type) {
       case TYPES.FetchQUESTIONWITHID:
-        console.log(action.userQuestion)
         return {
           ...state,
           userQuestion:action.userQuestion

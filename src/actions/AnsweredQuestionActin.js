@@ -1,10 +1,8 @@
 import TYPES from "../Reducers/Types";
 
 export function fetchAnsweredQuestins(questions,question) {
-  console.log("answeed");
 
   if (question !== null) {
-  
     return function (dispatch) {
       dispatch({
         type: TYPES.FETCHANSWEREDQUESTIONS,

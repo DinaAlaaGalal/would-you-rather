@@ -3,13 +3,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUser } from "../actions/CurrentUserAction";
 class Navbar extends Component {
-  componentDidMount() {
-  }
-mylogout=()=>{
-  this.props?.fetchUser([],'')
-}
+  componentDidMount() {}
+  mylogout = () => {
+    this.props?.fetchUser([], "");
+  };
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-primary bg-primary">
@@ -33,42 +32,40 @@ mylogout=()=>{
                   Leader Boared
                 </Link>
               </li>
-</ul>
-
+            </ul>
           </div>
           <ul className="navbar-nav ml-auto">
-
-          {this.props.currentuser?.currentuser&& (
-                <li className="nav-item mr-5">
-                  <img
-                    className="Avatar-nav"
-                    // src={this.props?.currentuser?.avatarURL}
-                    src={this.props.currentuser?.currentuser?.avatarURL}
-                    alt=""
-                  />
-                  <h6 className="nav-link navColor">
-                    hi , {this.props.currentuser?.currentuser?.name}{" "}
-                  </h6>
-                </li>
-              )}
-              {this.props.currentuser?.currentuser&& (
+            {this.props.currentuser?.currentuser && (
               <li className="nav-item mr-5">
-              <i className="fas fa-sign-out-alt fa-2x Avatar-nav navColor"></i>
-                <p className="nav-link navColor" onClick={this.mylogout}>Logout</p>
+                <img
+                  className="Avatar-nav"
+                  src={this.props.currentuser?.currentuser?.avatarURL}
+                  alt=""
+                />
+                <h6 className="nav-link navColor">
+                  hi , {this.props.currentuser?.currentuser?.name}{" "}
+                </h6>
               </li>
-              )}
-            </ul>
+            )}
+            {this.props.currentuser?.currentuser && (
+              <li className="nav-item mr-5">
+                <i className="fas fa-sign-out-alt fa-2x Avatar-nav navColor"></i>
+                <p className="nav-link navColor" onClick={this.mylogout}>
+                  Logout
+                </p>
+              </li>
+            )}
+          </ul>
         </nav>
       </React.Fragment>
     );
   }
 }
 
-
 function mapStateToProps(state) {
   return {
-    currentuser:state.currentuser,
+    currentuser: state.currentuser,
   };
 }
 
-export default connect(mapStateToProps,{fetchUser})(Navbar);
+export default connect(mapStateToProps, { fetchUser })(Navbar);

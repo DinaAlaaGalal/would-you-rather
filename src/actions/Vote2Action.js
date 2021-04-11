@@ -1,6 +1,5 @@
 import TYPES from "../Reducers/Types";
 export function fetchVoteOption2(questions,question) {
-  console.log('qqqqqqqqqqq')
     return function(dispatch) {
              dispatch({
                 type:TYPES.FETCH_VOTE2,

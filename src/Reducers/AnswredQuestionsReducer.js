@@ -1,5 +1,4 @@
 import TYPES from "./Types";
-// import {questions} from '../utils/_DATA'
 const initialState = {
     answeredquestions:[]
   };

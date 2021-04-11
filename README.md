@@ -7,7 +7,7 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 ## TL;DR
 
 To get started developing right away:
-*git clone https://github.com/DinaAlaaGalal/would-you-rather.git
+* git clone https://github.com/DinaAlaaGalal/would-you-rather.git
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 

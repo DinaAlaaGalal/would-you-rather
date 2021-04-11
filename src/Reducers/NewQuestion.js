@@ -6,7 +6,6 @@ const initialState = {
 export default function NEWQUESTIONReducer(state = initialState, action) {
     switch (action.type) {
       case TYPES.FETCHNEWQUESTION:
-          console.log(action.questions)
         return {
           ...state,
           questions:action.questions
